@@ -103,13 +103,21 @@ ul {
 }
 
 .site-header__row {
-    display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 24px;
     height: 64px;
+}
+
+/* PCは1025px以上、SP/iPadは1024px以下でヘッダー行を丸ごと出し分ける */
+.site-header__row--desktop {
+    display: none;
+}
+
+.site-header__row--mobile {
+    display: grid;
 }
 
 .site-logo {
@@ -127,14 +135,29 @@ ul {
     object-fit: contain;
 }
 
-.site-menu-toggle {
+.site-header__left {
     grid-column: 1;
     justify-self: start;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+}
+
+.site-header__right {
+    grid-column: 3;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.site-menu-toggle {
     display: flex;
     flex-direction: column;
     gap: 5px;
     padding: 8px;
-    margin-left: -8px;
 }
 
 .site-menu-toggle span {
@@ -894,15 +917,22 @@ ul {
    Responsive
    ========================================================== */
 
-@media (min-width: 769px) {
-    .site-menu-toggle {
+/* PC（1025px以上）：デスクトップ用ヘッダー行を表示し、SP/iPad用は隠す */
+@media (min-width: 1025px) {
+    .site-header__row--desktop {
+        display: grid;
+    }
+
+    .site-header__row--mobile {
         display: none;
     }
-}
 
-@media (min-width: 900px) {
     .utility-link__text {
         display: inline;
+    }
+
+    .site-nav__fav {
+        display: none;
     }
 }
 
@@ -918,12 +948,6 @@ ul {
     .site-footer__top {
         grid-template-columns: 1fr 1fr;
     }
-}
-
-@media (max-width: 768px) {
-    .site-header__utility {
-        gap: 14px;
-    }
 
     .site-nav {
         position: absolute;
@@ -938,7 +962,8 @@ ul {
     }
 
     .site-nav.is-open {
-        max-height: 400px;
+        max-height: 420px;
+        overflow-y: auto;
     }
 
     .site-nav ul {
@@ -952,6 +977,24 @@ ul {
         border-bottom: none;
     }
 
+    .site-nav__fav {
+        border-top: 1px solid var(--color-gray-100);
+        margin-top: 8px;
+    }
+
+    .site-nav__fav a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .site-nav__fav-icon {
+        display: flex;
+        color: var(--color-gray-700);
+    }
+}
+
+@media (max-width: 768px) {
     .hero-slider__content {
         max-width: 80%;
     }

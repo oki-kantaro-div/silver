@@ -10,17 +10,23 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // 検索欄の開閉
-    var searchToggle = document.getElementById('searchToggle');
+    // 検索欄の開閉（PC用・SP/iPad用の2つのボタンどちらからも開閉できるようにする）
+    var searchToggles = [
+        document.getElementById('searchToggle'),
+        document.getElementById('searchToggleMobile')
+    ];
     var search = document.getElementById('siteSearch');
 
-    if (searchToggle && search) {
-        searchToggle.addEventListener('click', function () {
-            search.classList.toggle('is-open');
-            if (search.classList.contains('is-open')) {
-                var input = search.querySelector('input');
-                if (input) input.focus();
-            }
+    if (search) {
+        searchToggles.forEach(function (btn) {
+            if (!btn) return;
+            btn.addEventListener('click', function () {
+                search.classList.toggle('is-open');
+                if (search.classList.contains('is-open')) {
+                    var input = search.querySelector('input');
+                    if (input) input.focus();
+                }
+            });
         });
     }
 
