@@ -1,0 +1,8 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="400" fill="#eceae6"/>
+  <path d="M60 60 C90 120, 100 180, 130 230 C160 280, 210 320, 280 340
+           C310 348, 335 348, 340 335 C345 322, 330 315, 310 312
+           C250 300, 200 265, 165 215 C135 170, 122 115, 96 55"
+        fill="none" stroke="#1a1a1a" stroke-width="1.6" stroke-linecap="round"/>
+  <ellipse cx="180" cy="243" rx="55" ry="26" transform="rotate(35 180 243)" fill="none" stroke="#1a1a1a" stroke-width="3"/>
+</svg>
