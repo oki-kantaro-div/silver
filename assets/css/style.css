@@ -12,8 +12,8 @@
     --color-gray-500: #8c8880;
     --color-gray-700: #55524c;
 
-    --font-jp: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-en: 'Jost', var(--font-jp);
+    --font-jp: 'Cormorant Garamond', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-en: 'Cormorant Garamond', 'Noto Sans JP', serif;
 
     --ease: cubic-bezier(0.22, 1, 0.36, 1);
     --max-width: 1440px;
