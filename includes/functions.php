@@ -46,3 +46,40 @@ function ranking_by_category($products, $categories, $limit = 5) {
     }
     return $ranking;
 }
+
+function build_cart($products, $lines, $free_shipping_threshold = 8800, $shipping_fee = 660) {
+    $items = [];
+    $subtotal = 0;
+
+    foreach ($lines as $line) {
+        $product = find_product($products, $line['id']);
+        if (!$product) {
+            continue;
+        }
+        $product['qty'] = $line['qty'];
+        $product['line_total'] = $product['price'] * $line['qty'];
+        $subtotal += $product['line_total'];
+        $items[] = $product;
+    }
+
+    $fee = ($subtotal === 0 || $subtotal >= $free_shipping_threshold) ? 0 : $shipping_fee;
+
+    return [
+        'items' => $items,
+        'subtotal' => $subtotal,
+        'free_shipping_threshold' => $free_shipping_threshold,
+        'shipping_fee' => $fee,
+        'total' => $subtotal + $fee,
+    ];
+}
+
+function search_products($products, $keyword) {
+    $keyword = trim((string) $keyword);
+    if ($keyword === '') {
+        return [];
+    }
+    return array_values(array_filter($products, function ($p) use ($keyword) {
+        return mb_stripos($p['name'], $keyword) !== false
+            || mb_stripos($p['description'], $keyword) !== false;
+    }));
+}

@@ -20,12 +20,12 @@ $icon_cart = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" xmlns=
         </a>
 
         <div class="site-header__utility">
-            <a href="#" class="utility-link" aria-label="お気に入り">
+            <a href="/silver/favorites.php" class="utility-link" aria-label="お気に入り">
                 <span class="utility-link__icon"><?= $icon_fav ?></span>
                 <span class="utility-link__text">お気に入り</span>
             </a>
 
-            <a href="#" class="utility-link" aria-label="マイページ">
+            <a href="/silver/mypage.php" class="utility-link" aria-label="マイページ">
                 <span class="utility-link__icon"><?= $icon_mypage ?></span>
                 <span class="utility-link__text">マイページ</span>
             </a>
@@ -35,7 +35,7 @@ $icon_cart = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" xmlns=
                 <span class="utility-link__text">検索</span>
             </button>
 
-            <a href="#" class="utility-link site-cart" aria-label="カート">
+            <a href="/silver/cart.php" class="utility-link site-cart" aria-label="カート">
                 <span class="utility-link__icon"><?= $icon_cart ?></span>
                 <span class="utility-link__text">カート (0)</span>
             </a>
@@ -58,19 +58,19 @@ $icon_cart = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" xmlns=
         </a>
 
         <div class="site-header__right">
-            <a href="#" class="utility-link" aria-label="マイページ">
+            <a href="/silver/mypage.php" class="utility-link" aria-label="マイページ">
                 <span class="utility-link__icon"><?= $icon_mypage ?></span>
             </a>
-            <a href="#" class="utility-link site-cart" aria-label="カート">
+            <a href="/silver/cart.php" class="utility-link site-cart" aria-label="カート">
                 <span class="utility-link__icon"><?= $icon_cart ?></span>
             </a>
         </div>
     </div>
 
-    <div class="site-search" id="siteSearch">
-        <input type="search" placeholder="商品を検索する" aria-label="商品を検索する">
-        <button type="button">検索</button>
-    </div>
+    <form class="site-search" id="siteSearch" action="/silver/search.php" method="get">
+        <input type="search" name="q" placeholder="商品を検索する" aria-label="商品を検索する" value="<?= h($_GET['q'] ?? '') ?>">
+        <button type="submit">検索</button>
+    </form>
 
     <nav class="site-nav" id="siteNav">
         <ul>
@@ -86,7 +86,7 @@ $icon_cart = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" xmlns=
                 </li>
             <?php endforeach; ?>
             <li class="site-nav__fav">
-                <a href="#">
+                <a href="/silver/favorites.php">
                     <span class="site-nav__fav-icon"><?= $icon_fav ?></span>
                     お気に入り
                 </a>

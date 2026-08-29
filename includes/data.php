@@ -255,3 +255,14 @@ $products = [
         'material' => 'Silver925',
     ],
 ];
+
+/**
+ * フロントのみのデザインモックのため、カートの中身は固定のサンプルデータ。
+ * cart.php / checkout.php / order-complete.php で共通利用する。
+ * 実装時はセッションやDBのカート情報に置き換える想定。
+ */
+$mock_cart_lines = [
+    ['id' => 1, 'qty' => 1],
+    ['id' => 2, 'qty' => 2],
+    ['id' => 4, 'qty' => 1],
+];
