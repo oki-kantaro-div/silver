@@ -297,4 +297,37 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // ログイン・新規会員登録：デザインモックのため、送信するとマイページ（ダッシュボード）へ遷移
+    ['loginForm', 'registerForm'].forEach(function (id) {
+        var form = document.getElementById(id);
+        if (!form) return;
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            window.location.href = '/silver/account.php';
+        });
+    });
+
+    // マイページ（ダッシュボード）：サイドナビのタブ切り替え
+    var dashboardNavItems = document.querySelectorAll('.account-dashboard__nav-item[data-panel]');
+    if (dashboardNavItems.length) {
+        dashboardNavItems.forEach(function (item) {
+            item.addEventListener('click', function () {
+                var panelId = item.getAttribute('data-panel');
+                var panel = document.getElementById(panelId);
+                if (!panel) return;
+
+                dashboardNavItems.forEach(function (i) {
+                    i.classList.remove('is-active');
+                });
+                document.querySelectorAll('.account-dashboard__panel').forEach(function (p) {
+                    p.classList.remove('is-active');
+                });
+
+                item.classList.add('is-active');
+                panel.classList.add('is-active');
+            });
+        });
+    }
+
 });

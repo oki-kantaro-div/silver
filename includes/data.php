@@ -9,6 +9,8 @@ $categories = [
     'necklace'  => 'ネックレス',
     'bracelet'  => 'ブレスレット',
     'earring'   => 'ピアス',
+    'dogtag'    => 'ドッグタグ',
+    'bangle'    => 'バングル',
 ];
 
 $img_base = '/silver/assets/img/';
@@ -41,10 +43,10 @@ $products = [
     [
         'id' => 3,
         'name' => 'Curve Bangle',
-        'category' => 'bracelet',
+        'category' => 'bangle',
         'price' => 18800,
         'image' => $img_base . 'test_3.jpg',
-        'worn_image' => $img_base . 'wrist-bracelet.svg',
+        'worn_image' => $img_base . 'wrist-bangle.svg',
         'pickup' => true,
         'new' => false,
         'description' => "手首の曲線に合わせた、継ぎ目の少ないバングル。\n単体使いでも存在感があります。",
@@ -113,10 +115,10 @@ $products = [
     [
         'id' => 9,
         'name' => 'Thin Bangle',
-        'category' => 'bracelet',
+        'category' => 'bangle',
         'price' => 16800,
         'image' => $img_base . 'test_9.jpg',
-        'worn_image' => $img_base . 'wrist-bracelet.svg',
+        'worn_image' => $img_base . 'wrist-bangle.svg',
         'pickup' => false,
         'new' => false,
         'description' => "細身でスタッキングしやすいバングル。",
@@ -209,10 +211,10 @@ $products = [
     [
         'id' => 17,
         'name' => 'Double Bangle',
-        'category' => 'bracelet',
+        'category' => 'bangle',
         'price' => 19800,
         'image' => $img_base . 'test_9.jpg',
-        'worn_image' => $img_base . 'wrist-bracelet.svg',
+        'worn_image' => $img_base . 'wrist-bangle.svg',
         'pickup' => false,
         'new' => true,
         'description' => "重ね付けしたような二連デザインのバングル。",
@@ -254,6 +256,66 @@ $products = [
         'description' => "縦のラインを強調するロングドロップピアス。",
         'material' => 'Silver925',
     ],
+    [
+        'id' => 21,
+        'name' => 'Classic Dog Tag Necklace',
+        'category' => 'dogtag',
+        'price' => 14800,
+        'image' => $img_base . 'dogtag.svg',
+        'worn_image' => $img_base . 'neck-dogtag.svg',
+        'pickup' => true,
+        'new' => true,
+        'description' => "定番のドッグタグをシルバーで仕立てたネックレス。\n刻印を入れてお楽しみいただくのもおすすめです。",
+        'material' => 'Silver925',
+    ],
+    [
+        'id' => 22,
+        'name' => 'Small Dog Tag Necklace',
+        'category' => 'dogtag',
+        'price' => 12800,
+        'image' => $img_base . 'dogtag.svg',
+        'worn_image' => $img_base . 'neck-dogtag.svg',
+        'pickup' => false,
+        'new' => true,
+        'description' => "ひとまわり小さなサイズ感のドッグタグ。\n重ね付けのアクセントにも。",
+        'material' => 'Silver925',
+    ],
+    [
+        'id' => 23,
+        'name' => 'Double Dog Tag Necklace',
+        'category' => 'dogtag',
+        'price' => 16800,
+        'image' => $img_base . 'dogtag.svg',
+        'worn_image' => $img_base . 'neck-dogtag.svg',
+        'pickup' => false,
+        'new' => false,
+        'description' => "2枚のタグを重ねたボリューム感のあるデザイン。",
+        'material' => 'Silver925',
+    ],
+    [
+        'id' => 24,
+        'name' => 'Fine Chain Bracelet',
+        'category' => 'bracelet',
+        'price' => 12800,
+        'image' => $img_base . 'bracelet.svg',
+        'worn_image' => $img_base . 'wrist-bracelet.svg',
+        'pickup' => false,
+        'new' => false,
+        'description' => "華奢なチェーンで手首に軽やかな表情を添えるブレスレット。",
+        'material' => 'Silver925',
+    ],
+    [
+        'id' => 25,
+        'name' => 'Twist Chain Bracelet',
+        'category' => 'bracelet',
+        'price' => 15800,
+        'image' => $img_base . 'bracelet.svg',
+        'worn_image' => $img_base . 'wrist-bracelet.svg',
+        'pickup' => false,
+        'new' => true,
+        'description' => "リンクをひねったようなデザインのチェーンブレスレット。",
+        'material' => 'Silver925',
+    ],
 ];
 
 /**
@@ -265,4 +327,39 @@ $mock_cart_lines = [
     ['id' => 1, 'qty' => 1],
     ['id' => 2, 'qty' => 2],
     ['id' => 4, 'qty' => 1],
+];
+
+/**
+ * フロントのみのデザインモックのため、マイページの注文履歴は固定のサンプルデータ。
+ * 実装時はセッションやDBの注文情報に置き換える想定。
+ */
+$mock_orders = [
+    [
+        'number' => 'SV-20260810-1234',
+        'date' => '2026-08-10',
+        'status' => '発送済み',
+        'lines' => [
+            ['id' => 5, 'qty' => 1],
+            ['id' => 19, 'qty' => 1],
+        ],
+    ],
+    [
+        'number' => 'SV-20260715-0231',
+        'date' => '2026-07-15',
+        'status' => '対応完了',
+        'lines' => [
+            ['id' => 2, 'qty' => 1],
+        ],
+    ],
+];
+
+/**
+ * フロントのみのデザインモックのため、マイページの会員情報・お届け先住所も固定のサンプルデータ。
+ */
+$mock_member = [
+    'name' => '山田 花子',
+    'email' => 'hanako@example.com',
+    'zip' => '000-0000',
+    'address' => '東京都◯◯区◯◯ 0-0-0',
+    'tel' => '000-0000-0000',
 ];

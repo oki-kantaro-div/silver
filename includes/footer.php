@@ -33,6 +33,7 @@ $sns_icon_tiktok = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" 
                 <ul>
                     <li><a href="/silver/guide.php">ご利用ガイド</a></li>
                     <li><a href="/silver/guide.php#payment">お支払い・配送について</a></li>
+                    <li><a href="/silver/refund-policy.php">返品ポリシー</a></li>
                     <li><a href="/silver/faq.php">よくあるご質問</a></li>
                     <li><a href="/silver/contact.php">お問い合わせ</a></li>
                 </ul>
@@ -42,8 +43,9 @@ $sns_icon_tiktok = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" 
                 <p class="site-footer__heading">ABOUT</p>
                 <ul>
                     <li><a href="/silver/company.php">会社情報</a></li>
-                    <li><a href="#">プライバシーポリシー</a></li>
-                    <li><a href="#">特定商取引法に基づく表記</a></li>
+                    <li><a href="/silver/privacy-policy.php">プライバシーポリシー</a></li>
+                    <li><a href="/silver/terms.php">ご利用規約</a></li>
+                    <li><a href="/silver/legal-notice.php">特定商取引法に基づく表記</a></li>
                 </ul>
             </div>
         </div>

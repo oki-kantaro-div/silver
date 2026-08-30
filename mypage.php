@@ -11,10 +11,7 @@ $page_title = 'マイページ | SILVER';
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?= h($page_title) ?></title>
-<link rel="stylesheet" href="/silver/assets/css/style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<?php include __DIR__ . '/includes/head-assets.php'; ?>
 </head>
 <body>
 
@@ -28,7 +25,7 @@ $page_title = 'マイページ | SILVER';
             <div class="account-panel">
                 <h2 class="account-panel__heading">ログイン</h2>
 
-                <form class="account-form js-mock-form">
+                <form class="account-form" id="loginForm">
                     <label class="account-form__field">
                         <span>メールアドレス</span>
                         <input type="email" name="email" required placeholder="example@mail.com">
@@ -50,7 +47,7 @@ $page_title = 'マイページ | SILVER';
                 <p class="account-panel__text">
                     会員登録をしていただくと、購入履歴の確認やお気に入り登録、次回以降のスムーズなご購入が可能になります。
                 </p>
-                <a href="#" class="btn-outline">新規会員登録はこちら</a>
+                <a href="/silver/register.php" class="btn-outline">新規会員登録はこちら</a>
             </div>
         </div>
     </section>
