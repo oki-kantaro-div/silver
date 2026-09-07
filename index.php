@@ -20,8 +20,8 @@ $hero_slides = [
         'image' => '/silver/assets/img/hero-2.svg',
         'eyebrow' => 'PICK UP',
         'title' => "身につける、\n静かな輝き。",
-        'link' => '/silver/category.php?cat=necklace',
-        'link_label' => 'SHOP NECKLACE',
+        'link' => '/silver/category.php?cat=pendant',
+        'link_label' => 'SHOP PENDANT',
     ],
     [
         'image' => '/silver/assets/img/hero-3.svg',

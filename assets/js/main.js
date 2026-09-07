@@ -145,6 +145,20 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // 商品詳細ページ：刻印オプションのON/OFFで価格表示を再計算
+    var engravingOption = document.getElementById('engravingOption');
+    var productPrice = document.getElementById('productPrice');
+
+    if (engravingOption && productPrice) {
+        var basePrice = parseInt(productPrice.getAttribute('data-base-price'), 10) || 0;
+        var engravingPrice = parseInt(engravingOption.getAttribute('data-price'), 10) || 0;
+
+        engravingOption.addEventListener('change', function () {
+            var total = basePrice + (engravingOption.checked ? engravingPrice : 0);
+            productPrice.textContent = '¥' + total.toLocaleString('ja-JP');
+        });
+    }
+
     // カートページ：数量変更・削除・小計/送料/合計の再計算（フロントのみ、リロードでリセットされる）
     var cartList = document.getElementById('cartList');
     if (cartList) {

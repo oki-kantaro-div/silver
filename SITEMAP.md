@@ -27,7 +27,7 @@ silver/
 |---|---|
 | `index.php` | トップページ。ヒーロースライダー／カテゴリアイコン／NEW ARRIVAL・PICK UPの横スクロール／ランキング（カテゴリタブ）を表示する。`new_products()` `pickup_products()` `ranking_by_category()` を使って `$products` から表示用データを組み立てる。 |
 | `category.php` | カテゴリ別の商品一覧。クエリ `?cat={key}` で `$categories` のキーを受け取り、`products_by_category()` で絞り込んで `product-card.php` を並べる。不正な`cat`値は「全件表示」扱いにフォールバックする。 |
-| `product.php` | 商品詳細。クエリ `?id={id}` で `find_product()` により該当商品を取得。存在しないIDは `index.php` へリダイレクト。ギャラリー（物撮り／着用／反転）、関連商品（同カテゴリ）を表示する。 |
+| `product.php` | 商品詳細。クエリ `?id={id}` で `find_product()` により該当商品を取得。存在しないIDは `index.php` へリダイレクト。ギャラリー（物撮り／着用／反転）、関連商品（同カテゴリ）を表示する。`category === 'ring'`のときサイズ選択（11号〜21号）、`engravable === true`のとき刻印オプション（+¥6,000、選択でJSが価格表示を再計算）を表示。 |
 | `search.php` | 検索結果。クエリ `?q={keyword}` を `search_products()` に渡し、商品名・説明文の部分一致でヒットしたものを一覧表示。ヘッダーの検索フォーム（`header.php`内）から遷移してくる。 |
 
 ### 購入フロー
@@ -97,12 +97,30 @@ silver/
 
 | 変数 | 内容 |
 |---|---|
-| `$categories` | カテゴリの key => 表示名 の連想配列（`ring` `necklace` `bracelet` `earring` `dogtag` `bangle` の6種）。ここに追加すればナビ・カテゴリアイコン・ランキングタブに自動反映される。 |
+| `$categories` | カテゴリの key => 表示名 の連想配列（`ring`=リング／`pendant`=ペンダント／`bangle`=バングル／`dogtag`=ドッグタグ／`bracelet`=ブレスレット／`earring`=ピアス の6種）。ここに追加すればナビ・カテゴリアイコン・ランキングタブに自動反映される。 |
 | `$img_base` | 画像パスのプレフィックス（`/silver/assets/img/`）。 |
-| `$products` | 商品データ本体（25件）。各要素は `id` `name` `category` `price` `image` `worn_image` `pickup` `new` `description` `material` を持つ。 |
+| `$products` | 商品データ本体（42件）。各要素のキーは下表の通り。 |
 | `$mock_cart_lines` | カートの中身のサンプル（`cart.php` `checkout.php` `order-complete.php`で共通利用）。 |
 | `$mock_orders` | マイページの注文履歴サンプル（`account.php`で使用）。各要素は `number` `date` `status` `lines`（`build_cart`に渡す形式）を持つ。 |
 | `$mock_member` | マイページの会員情報・お届け先住所サンプル（`account.php`で使用）。 |
+
+#### `$products` の各要素（商品1件あたり）のキー
+
+| キー | 型 | 内容 |
+|---|---|---|
+| `id` | int | 商品ID。連番で一意に管理。`product.php?id=`での商品指定、カート／注文履歴（`$mock_cart_lines` `$mock_orders`の`lines`）での商品参照に使う。 |
+| `name` | string | 商品名。商品カード・商品詳細・関連商品・検索結果などにそのまま表示される。 |
+| `category` | string | カテゴリの内部キー。**`$categories`のキーと必ず一致させる**（`ring` `pendant` `bangle` `dogtag` `bracelet` `earring`のいずれか）。カテゴリ絞り込み（`products_by_category()`）・ランキング（`ranking_by_category()`）・カテゴリページの表示判定に使う。 |
+| `price` | int | 税込価格（円、カンマや¥記号なしの数値のみ）。`format_price()`で`¥12,800`形式に整形されて表示される。刻印オプションON時は`product.php`側のJSで表示価格に+6,000円が上乗せされる（このキー自体は変化しない）。 |
+| `image` | string | メイン商品画像（物撮り）のパス。`$img_base . 'ファイル名'`の形で指定。商品カード・商品詳細のメイン画像・関連商品などで使用。 |
+| `worn_image` | string | 着用写真のパス。商品詳細ページのギャラリー2枚目、トップページPICK UPスライダーの奇数番目のカードで使用。 |
+| `pickup` | bool | `true`の場合、トップページ「PICK UP」の横スクロール枠に表示される（`pickup_products()`）。 |
+| `new` | bool | `true`の場合、トップページ「NEW ARRIVAL」枠に載り、商品カードに「NEW」バッジが付く（`new_products()`）。 |
+| `engravable` | bool | `true`の場合、商品詳細ページに「刻印オプション（+¥6,000）」のチェックボックスが表示される。**現状はこのハードコード配列のフラグで管理しており、将来的にはDBのフラグに置き換える想定。** |
+| `description` | string | 商品説明文。商品詳細ページに表示。文中に`\n`を入れると`nl2br()`で改行される。検索（`search_products()`）は商品名とこの説明文を対象に部分一致する。 |
+| `material` | string | 素材表記。商品詳細ページの「MATERIAL」欄にそのまま表示。 |
+
+※リングのサイズ選択（11号〜21号）は`$products`のキーではなく、`product.php`側で`category === 'ring'`のときだけ自動表示される固定の作り。商品ごとにON/OFFはできない点に注意。
 
 ---
 
@@ -115,6 +133,22 @@ silver/
 | `assets/img/*.svg` | オリジナルの線画プレースホルダー（商品カテゴリごとの物撮り風・着用風、ヒーローバナー用の抽象柄）。実写真が無いカテゴリ・商品はこれらが表示される。 |
 | `assets/img/test_*.jpg` | 差し替え済みの実商品写真（一部商品のみ）。 |
 | `assets/img/main-logo-3.png` | ヘッダーのロゴ画像（"Lost Paradise"のワードマーク）。 |
+
+---
+
+## 画像仕様（推奨設定）
+
+実写真に差し替える際の目安。いずれもJPGまたはWebP推奨（透過が必要な場合のみPNG）。
+
+| 用途 | 使用箇所 | 比率 | 推奨サイズ | 備考 |
+|---|---|---|---|---|
+| スライダー画像（ヒーローバナー） | `index.php`の`$hero_slides`の`image`。表示は`assets/css/style.css`の`.hero-slider`（横幅いっぱい、最大高さ620px） | 2:1（横長） | 1920×960px以上（高解像度ディスプレイ向けは2400×1200px程度） | 文字（見出し・ボタン）が常に画面**左側**に重なる仕様のため、被写体は中央〜右寄りに配置すると文字と喧嘩しない。暗幕グラデーションを常時オーバーレイしているので、写真の明暗を問わず白文字は読める。1枚あたり300〜400KB程度に圧縮。 |
+| 商品メイン画像（物撮り） | `$products`の`image`。商品カード・商品詳細メイン画像・関連商品・カート/レジ/マイページのサムネイル等、サイト全体で使い回される | 1:1（正方形） | 1200×1200px以上 | 背景は白またはグレー推奨、コントラスト強めでシルバーを際立たせる。商品詳細のメイン画像は最大560px角程度で表示されるため、1200px角あれば retina でも十分な解像度。 |
+| 商品着用画像 | `$products`の`worn_image`。商品詳細ギャラリー2枚目、トップPICK UPスライダー | 1:1（正方形） | 1200×1200px以上 | 手・首・耳など着用部位のみを写した写真。物撮りと同じ比率・解像度で統一。 |
+| カテゴリアイコン | `assets/img/{カテゴリキー}.svg`（例：`ring.svg` `pendant.svg`）。`index.php`のカテゴリアイコン行で円形にクロップして表示 | 1:1（正方形） | 400×400px以上 | 表示は円形（PCで84px、スマホで68px程度）なので、被写体は中央に寄せる。商品写真ではなくカテゴリの象徴的なカット1枚でよい。 |
+| ロゴ | `assets/img/main-logo-3.png`。`includes/header.php`で高さ38px（極小スマホは30px）に自動縮小して表示 | 横長（現状1728×910px） | 現状のサイズで十分。差し替える場合も高さ100px前後・幅は比率に応じたPNG推奨（背景透過なしの現行踏襲でも可） | - |
+
+新しいカテゴリを追加する場合は、上記「カテゴリアイコン」の仕様で `assets/img/{新しいキー}.svg`（または`.jpg`/`.png`）を用意すること（ファイルが無いと画像が404になる。実際に`pendant`カテゴリ追加時に一度この抜けが発生している）。
 
 ---
 

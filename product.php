@@ -59,9 +59,34 @@ $page_title = $product['name'] . ' | SILVER';
         <div class="product-info">
             <p class="product-info__category"><?= h($categories[$product['category']]) ?></p>
             <h1 class="product-info__name"><?= h($product['name']) ?></h1>
-            <p class="product-info__price"><?= h(format_price($product['price'])) ?></p>
+            <p class="product-info__price" id="productPrice" data-base-price="<?= (int) $product['price'] ?>">
+                <?= h(format_price($product['price'])) ?>
+            </p>
 
             <p class="product-info__description"><?= nl2br(h($product['description'])) ?></p>
+
+            <?php if ($product['category'] === 'ring' || !empty($product['engravable'])): ?>
+                <div class="product-options">
+                    <?php if ($product['category'] === 'ring'): ?>
+                        <label class="product-options__field">
+                            <span>サイズ</span>
+                            <select id="ringSize">
+                                <option value="">選択してください</option>
+                                <?php for ($size = 11; $size <= 21; $size++): ?>
+                                    <option value="<?= $size ?>"><?= $size ?>号</option>
+                                <?php endfor; ?>
+                            </select>
+                        </label>
+                    <?php endif; ?>
+
+                    <?php if (!empty($product['engravable'])): ?>
+                        <label class="product-options__checkbox">
+                            <input type="checkbox" id="engravingOption" data-price="6000">
+                            <span>刻印オプション（+&yen;6,000）</span>
+                        </label>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
 
             <dl class="product-info__spec">
                 <div>
