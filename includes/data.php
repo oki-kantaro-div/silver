@@ -13,7 +13,7 @@ $categories = [
     'earring'   => 'ピアス',
 ];
 
-$img_base = '/silver/assets/img/';
+$img_base = '/assets/img/';
 
 $products = [
     [
@@ -21,8 +21,8 @@ $products = [
         'name' => '天使の羽リング',
         'category' => 'ring',
         'price' => 39800,
-        'image' => $img_base . 'ring.svg',
-        'worn_image' => $img_base . 'hand-ring.svg',
+        'image' => $img_base . 'ring.jpg',
+        'worn_image' => $img_base . 'ring.jpg',
         'pickup' => false,
         'new' => false,
         'engravable' => false,

@@ -10,24 +10,24 @@ $first_cat = array_key_first($categories);
 
 $hero_slides = [
     [
-        'image' => '/silver/assets/img/hero-1.svg',
+        'image' => '/assets/img/hero-1.svg',
         'eyebrow' => 'NEW COLLECTION',
         'title' => "Silver jewelry,\nquietly refined.",
-        'link' => '/silver/category.php?cat=ring',
+        'link' => '/category.php?cat=ring',
         'link_label' => 'SHOP RING',
     ],
     [
-        'image' => '/silver/assets/img/hero-2.svg',
+        'image' => '/assets/img/hero-2.svg',
         'eyebrow' => 'PICK UP',
         'title' => "身につける、\n静かな輝き。",
-        'link' => '/silver/category.php?cat=pendant',
+        'link' => '/category.php?cat=pendant',
         'link_label' => 'SHOP PENDANT',
     ],
     [
-        'image' => '/silver/assets/img/hero-3.svg',
+        'image' => '/assets/img/hero-3.svg',
         'eyebrow' => 'DAILY WEAR',
         'title' => "Everyday,\nelevated.",
-        'link' => '/silver/category.php?cat=bracelet',
+        'link' => '/category.php?cat=bracelet',
         'link_label' => 'SHOP BRACELET',
     ],
 ];
@@ -76,7 +76,7 @@ $page_title = 'SILVER | シルバーアクセサリ';
         <ul>
             <?php foreach ($categories as $key => $label): ?>
                 <li>
-                    <a href="/silver/category.php?cat=<?= h($key) ?>">
+                    <a href="/category.php?cat=<?= h($key) ?>">
                         <span class="cat-icons__image">
                             <img src="<?= h($img_base . $key . '.svg') ?>" alt="<?= h($label) ?>">
                         </span>

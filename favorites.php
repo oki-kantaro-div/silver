@@ -34,7 +34,7 @@ $page_title = 'お気に入り | SILVER';
         <?php if (empty($favorite_items)): ?>
             <div class="empty-state">
                 <p>お気に入りに登録された商品がありません。</p>
-                <a href="/silver/index.php" class="btn-outline">商品を見る</a>
+                <a href="/index.php" class="btn-outline">商品を見る</a>
             </div>
         <?php else: ?>
             <div class="product-grid" id="favoriteGrid">

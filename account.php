@@ -27,8 +27,8 @@ $page_title = 'マイページ | SILVER';
                 <button type="button" class="account-dashboard__nav-item is-active" data-panel="panel-orders">注文履歴</button>
                 <button type="button" class="account-dashboard__nav-item" data-panel="panel-address">お届け先住所</button>
                 <button type="button" class="account-dashboard__nav-item" data-panel="panel-profile">会員情報</button>
-                <a href="/silver/favorites.php" class="account-dashboard__nav-item">お気に入り</a>
-                <a href="/silver/mypage.php" class="account-dashboard__nav-item account-dashboard__nav-item--logout">ログアウト</a>
+                <a href="/favorites.php" class="account-dashboard__nav-item">お気に入り</a>
+                <a href="/mypage.php" class="account-dashboard__nav-item account-dashboard__nav-item--logout">ログアウト</a>
             </nav>
 
             <div class="account-dashboard__content">

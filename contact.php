@@ -56,7 +56,7 @@ $page_title = 'お問い合わせ | SILVER';
 
         <div class="empty-state" id="contactThanks" hidden>
             <p>お問い合わせありがとうございます。<br>内容を確認のうえ、担当者よりご連絡いたします。</p>
-            <a href="/silver/index.php" class="btn-outline">TOPへ戻る</a>
+            <a href="/index.php" class="btn-outline">TOPへ戻る</a>
         </div>
     </section>
 </main>

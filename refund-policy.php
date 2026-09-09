@@ -61,7 +61,7 @@ $page_title = '返品ポリシー | SILVER';
                 万が一、不良品・注文と異なる商品が届いた場合は、お手数ですが「お問い合わせ」より商品到着後7日以内にご連絡ください。当店負担にて良品と交換、または返金にて対応いたします。
             </p>
             <p class="content-block__text">
-                <a href="/silver/contact.php" class="account-form__link">お問い合わせフォームはこちら</a>
+                <a href="/contact.php" class="account-form__link">お問い合わせフォームはこちら</a>
             </p>
         </div>
     </section>

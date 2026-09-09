@@ -15,17 +15,17 @@ $icon_cart = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" xmlns=
 
     <!-- PC（1025px以上）専用ヘッダー行：現状のまま -->
     <div class="site-header__row site-header__row--desktop">
-        <a href="/silver/index.php" class="site-logo">
-            <img src="/silver/assets/img/main-logo-3.png" alt="Lost Paradise" class="site-logo__img">
+        <a href="/index.php" class="site-logo">
+            <img src="/assets/img/main-logo-3.png" alt="Lost Paradise" class="site-logo__img">
         </a>
 
         <div class="site-header__utility">
-            <a href="/silver/favorites.php" class="utility-link" aria-label="お気に入り">
+            <a href="/favorites.php" class="utility-link" aria-label="お気に入り">
                 <span class="utility-link__icon"><?= $icon_fav ?></span>
                 <span class="utility-link__text">お気に入り</span>
             </a>
 
-            <a href="/silver/mypage.php" class="utility-link" aria-label="マイページ">
+            <a href="/mypage.php" class="utility-link" aria-label="マイページ">
                 <span class="utility-link__icon"><?= $icon_mypage ?></span>
                 <span class="utility-link__text">マイページ</span>
             </a>
@@ -35,7 +35,7 @@ $icon_cart = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" xmlns=
                 <span class="utility-link__text">検索</span>
             </button>
 
-            <a href="/silver/cart.php" class="utility-link site-cart" aria-label="カート">
+            <a href="/cart.php" class="utility-link site-cart" aria-label="カート">
                 <span class="utility-link__icon"><?= $icon_cart ?></span>
                 <span class="utility-link__text">カート (0)</span>
             </a>
@@ -53,21 +53,21 @@ $icon_cart = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" xmlns=
             </button>
         </div>
 
-        <a href="/silver/index.php" class="site-logo">
-            <img src="/silver/assets/img/main-logo-3.png" alt="Lost Paradise" class="site-logo__img">
+        <a href="/index.php" class="site-logo">
+            <img src="/assets/img/main-logo-3.png" alt="Lost Paradise" class="site-logo__img">
         </a>
 
         <div class="site-header__right">
-            <a href="/silver/mypage.php" class="utility-link" aria-label="マイページ">
+            <a href="/mypage.php" class="utility-link" aria-label="マイページ">
                 <span class="utility-link__icon"><?= $icon_mypage ?></span>
             </a>
-            <a href="/silver/cart.php" class="utility-link site-cart" aria-label="カート">
+            <a href="/cart.php" class="utility-link site-cart" aria-label="カート">
                 <span class="utility-link__icon"><?= $icon_cart ?></span>
             </a>
         </div>
     </div>
 
-    <form class="site-search" id="siteSearch" action="/silver/search.php" method="get">
+    <form class="site-search" id="siteSearch" action="/search.php" method="get">
         <input type="search" name="q" placeholder="商品を検索する" aria-label="商品を検索する" value="<?= h($_GET['q'] ?? '') ?>">
         <button type="submit">検索</button>
     </form>
@@ -75,18 +75,18 @@ $icon_cart = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" xmlns=
     <nav class="site-nav" id="siteNav">
         <ul>
             <li>
-                <a href="/silver/index.php" class="<?= $current_cat === null ? 'is-active' : '' ?>">TOP</a>
+                <a href="/index.php" class="<?= $current_cat === null ? 'is-active' : '' ?>">TOP</a>
             </li>
             <?php foreach ($categories as $key => $label): ?>
                 <li>
-                    <a href="/silver/category.php?cat=<?= h($key) ?>"
+                    <a href="/category.php?cat=<?= h($key) ?>"
                        class="<?= $current_cat === $key ? 'is-active' : '' ?>">
                         <?= h($label) ?>
                     </a>
                 </li>
             <?php endforeach; ?>
             <li class="site-nav__fav">
-                <a href="/silver/favorites.php">
+                <a href="/favorites.php">
                     <span class="site-nav__fav-icon"><?= $icon_fav ?></span>
                     お気に入り
                 </a>

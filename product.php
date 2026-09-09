@@ -6,7 +6,7 @@ $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 $product = find_product($products, $id);
 
 if (!$product) {
-    header('Location: /silver/index.php');
+    header('Location: /index.php');
     exit;
 }
 

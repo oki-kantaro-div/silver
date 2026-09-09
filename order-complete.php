@@ -60,8 +60,8 @@ $page_title = 'ご注文完了 | SILVER';
             </div>
 
             <div class="order-complete__actions">
-                <a href="/silver/index.php" class="btn-outline">TOPへ戻る</a>
-                <a href="/silver/mypage.php" class="order-complete__link">ご注文履歴を確認する</a>
+                <a href="/index.php" class="btn-outline">TOPへ戻る</a>
+                <a href="/mypage.php" class="order-complete__link">ご注文履歴を確認する</a>
             </div>
         </div>
     </section>

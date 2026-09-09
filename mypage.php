@@ -47,7 +47,7 @@ $page_title = 'マイページ | SILVER';
                 <p class="account-panel__text">
                     会員登録をしていただくと、購入履歴の確認やお気に入り登録、次回以降のスムーズなご購入が可能になります。
                 </p>
-                <a href="/silver/register.php" class="btn-outline">新規会員登録はこちら</a>
+                <a href="/register.php" class="btn-outline">新規会員登録はこちら</a>
             </div>
         </div>
     </section>

@@ -47,7 +47,7 @@ $page_title = '新規会員登録 | SILVER';
 
             <button type="submit" class="btn-cart">会員登録する</button>
 
-            <a href="/silver/mypage.php" class="account-form__link">すでに会員の方はこちら</a>
+            <a href="/mypage.php" class="account-form__link">すでに会員の方はこちら</a>
         </form>
     </section>
 </main>

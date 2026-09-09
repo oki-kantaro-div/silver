@@ -5,7 +5,7 @@
  */
 $rank = isset($card_rank) ? $card_rank : null;
 ?>
-<a href="/silver/product.php?id=<?= h($product['id']) ?>" class="product-card">
+<a href="/product.php?id=<?= h($product['id']) ?>" class="product-card">
     <span class="product-card__image">
         <?php if ($rank): ?>
             <span class="product-card__rank">No.<?= h($rank) ?></span>

@@ -98,7 +98,7 @@ silver/
 | 変数 | 内容 |
 |---|---|
 | `$categories` | カテゴリの key => 表示名 の連想配列（`ring`=リング／`pendant`=ペンダント／`bangle`=バングル／`dogtag`=ドッグタグ／`bracelet`=ブレスレット／`earring`=ピアス の6種）。ここに追加すればナビ・カテゴリアイコン・ランキングタブに自動反映される。 |
-| `$img_base` | 画像パスのプレフィックス（`/silver/assets/img/`）。 |
+| `$img_base` | 画像パスのプレフィックス（`/assets/img/`）。 |
 | `$products` | 商品データ本体（42件）。各要素のキーは下表の通り。 |
 | `$mock_cart_lines` | カートの中身のサンプル（`cart.php` `checkout.php` `order-complete.php`で共通利用）。 |
 | `$mock_orders` | マイページの注文履歴サンプル（`account.php`で使用）。各要素は `number` `date` `status` `lines`（`build_cart`に渡す形式）を持つ。 |

@@ -21,9 +21,9 @@ $sns_icon_tiktok = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" 
             <div class="site-footer__col">
                 <p class="site-footer__heading">SHOP</p>
                 <ul>
-                    <li><a href="/silver/index.php">TOP</a></li>
+                    <li><a href="/index.php">TOP</a></li>
                     <?php foreach ($categories as $key => $label): ?>
-                        <li><a href="/silver/category.php?cat=<?= h($key) ?>"><?= h($label) ?></a></li>
+                        <li><a href="/category.php?cat=<?= h($key) ?>"><?= h($label) ?></a></li>
                     <?php endforeach; ?>
                 </ul>
             </div>
@@ -31,21 +31,21 @@ $sns_icon_tiktok = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" 
             <div class="site-footer__col">
                 <p class="site-footer__heading">GUIDE</p>
                 <ul>
-                    <li><a href="/silver/guide.php">ご利用ガイド</a></li>
-                    <li><a href="/silver/guide.php#payment">お支払い・配送について</a></li>
-                    <li><a href="/silver/refund-policy.php">返品ポリシー</a></li>
-                    <li><a href="/silver/faq.php">よくあるご質問</a></li>
-                    <li><a href="/silver/contact.php">お問い合わせ</a></li>
+                    <li><a href="/guide.php">ご利用ガイド</a></li>
+                    <li><a href="/guide.php#payment">お支払い・配送について</a></li>
+                    <li><a href="/refund-policy.php">返品ポリシー</a></li>
+                    <li><a href="/faq.php">よくあるご質問</a></li>
+                    <li><a href="/contact.php">お問い合わせ</a></li>
                 </ul>
             </div>
 
             <div class="site-footer__col">
                 <p class="site-footer__heading">ABOUT</p>
                 <ul>
-                    <li><a href="/silver/company.php">会社情報</a></li>
-                    <li><a href="/silver/privacy-policy.php">プライバシーポリシー</a></li>
-                    <li><a href="/silver/terms.php">ご利用規約</a></li>
-                    <li><a href="/silver/legal-notice.php">特定商取引法に基づく表記</a></li>
+                    <li><a href="/company.php">会社情報</a></li>
+                    <li><a href="/privacy-policy.php">プライバシーポリシー</a></li>
+                    <li><a href="/terms.php">ご利用規約</a></li>
+                    <li><a href="/legal-notice.php">特定商取引法に基づく表記</a></li>
                 </ul>
             </div>
         </div>
@@ -64,4 +64,4 @@ $sns_icon_tiktok = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" 
     </div>
 </footer>
 
-<script src="/silver/assets/js/main.js?v=<?= filemtime(__DIR__ . '/../assets/js/main.js') ?>"></script>
+<script src="/assets/js/main.js?v=<?= filemtime(__DIR__ . '/../assets/js/main.js') ?>"></script>

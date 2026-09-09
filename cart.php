@@ -32,20 +32,20 @@ $page_title = 'カート | SILVER';
         <?php if (empty($cart_items)): ?>
             <div class="empty-state">
                 <p>カートに商品がありません。</p>
-                <a href="/silver/index.php" class="btn-outline">商品を見る</a>
+                <a href="/index.php" class="btn-outline">商品を見る</a>
             </div>
         <?php else: ?>
             <div class="cart-list" id="cartList">
                 <?php foreach ($cart_items as $item): ?>
                     <div class="cart-item" data-price="<?= (int) $item['price'] ?>">
-                        <a href="/silver/product.php?id=<?= h($item['id']) ?>" class="cart-item__image">
+                        <a href="/product.php?id=<?= h($item['id']) ?>" class="cart-item__image">
                             <img src="<?= h($item['image']) ?>" alt="<?= h($item['name']) ?>">
                         </a>
 
                         <div class="cart-item__body">
                             <div class="cart-item__info">
                                 <p class="cart-item__category"><?= h($categories[$item['category']]) ?></p>
-                                <a href="/silver/product.php?id=<?= h($item['id']) ?>" class="cart-item__name"><?= h($item['name']) ?></a>
+                                <a href="/product.php?id=<?= h($item['id']) ?>" class="cart-item__name"><?= h($item['name']) ?></a>
                                 <p class="cart-item__price"><?= h(format_price($item['price'])) ?></p>
                             </div>
 
@@ -80,8 +80,8 @@ $page_title = 'カート | SILVER';
                     <span id="cartTotal"><?= h(format_price($total)) ?></span>
                 </div>
 
-                <a href="/silver/checkout.php" class="btn-cart">レジに進む</a>
-                <a href="/silver/index.php" class="cart-summary__continue">お買い物を続ける</a>
+                <a href="/checkout.php" class="btn-cart">レジに進む</a>
+                <a href="/index.php" class="cart-summary__continue">お買い物を続ける</a>
             </div>
         <?php endif; ?>
     </section>

@@ -82,7 +82,7 @@ $page_title = 'プライバシーポリシー | SILVER';
                 本ポリシーに関するお問い合わせは、下記の窓口までお願いいたします。
             </p>
             <p class="content-block__text">
-                <a href="/silver/contact.php" class="account-form__link">お問い合わせフォームはこちら</a>
+                <a href="/contact.php" class="account-form__link">お問い合わせフォームはこちら</a>
             </p>
         </div>
     </section>

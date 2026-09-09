@@ -29,7 +29,7 @@ $page_title = ($keyword !== '' ? '「' . $keyword . '」の検索結果' : '検�
         <?php elseif (empty($results)): ?>
             <p class="search-summary">「<?= h($keyword) ?>」に一致する商品は見つかりませんでした。</p>
             <p class="empty-message">
-                <a href="/silver/index.php" class="btn-outline">TOPへ戻る</a>
+                <a href="/index.php" class="btn-outline">TOPへ戻る</a>
             </p>
         <?php else: ?>
             <p class="search-summary">「<?= h($keyword) ?>」の検索結果　<?= count($results) ?>件</p>

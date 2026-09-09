@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             var empty = document.createElement('div');
             empty.className = 'empty-state';
-            empty.innerHTML = '<p>カートに商品がありません。</p><a href="/silver/index.php" class="btn-outline">商品を見る</a>';
+            empty.innerHTML = '<p>カートに商品がありません。</p><a href="/index.php" class="btn-outline">商品を見る</a>';
             page.appendChild(empty);
         };
 
@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     favoriteGrid.remove();
                     var empty = document.createElement('div');
                     empty.className = 'empty-state';
-                    empty.innerHTML = '<p>お気に入りに登録された商品がありません。</p><a href="/silver/index.php" class="btn-outline">商品を見る</a>';
+                    empty.innerHTML = '<p>お気に入りに登録された商品がありません。</p><a href="/index.php" class="btn-outline">商品を見る</a>';
                     page.appendChild(empty);
                 }
             }
@@ -307,7 +307,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         checkoutForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            window.location.href = '/silver/order-complete.php';
+            window.location.href = '/order-complete.php';
         });
     }
 
@@ -318,7 +318,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         form.addEventListener('submit', function (e) {
             e.preventDefault();
-            window.location.href = '/silver/account.php';
+            window.location.href = '/account.php';
         });
     });
 

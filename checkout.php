@@ -8,7 +8,7 @@ $cart = build_cart($products, $mock_cart_lines);
 $cart_items = $cart['items'];
 
 if (empty($cart_items)) {
-    header('Location: /silver/cart.php');
+    header('Location: /cart.php');
     exit;
 }
 
@@ -134,7 +134,7 @@ $page_title = 'レジに進む | SILVER';
                 </div>
 
                 <button type="submit" class="btn-cart">この内容で注文を確定する</button>
-                <a href="/silver/cart.php" class="cart-summary__continue">カートに戻る</a>
+                <a href="/cart.php" class="cart-summary__continue">カートに戻る</a>
             </div>
         </form>
     </section>
