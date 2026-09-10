@@ -53,7 +53,7 @@ $sns_icon_tiktok = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" 
         <div class="site-footer__bottom">
             <p class="site-footer__copy">&copy; <?= date('Y') ?> SILVER. All Rights Reserved.</p>
             <ul class="site-footer__sns">
-                <li><a href="#" class="sns-link" aria-label="Instagram"><?= $sns_icon_instagram ?></a></li>
+                <li><a href="https://www.instagram.com/lostparadise.silver?stkn=MThsMnByaXE1NnY3NA%3D%3D&utm_source=qr" class="sns-link" aria-label="Instagram"><?= $sns_icon_instagram ?></a></li>
                 <li><a href="#" class="sns-link" aria-label="X"><?= $sns_icon_x ?></a></li>
                 <li><a href="#" class="sns-link" aria-label="LINE"><?= $sns_icon_line ?></a></li>
                 <li><a href="#" class="sns-link" aria-label="Facebook"><?= $sns_icon_facebook ?></a></li>

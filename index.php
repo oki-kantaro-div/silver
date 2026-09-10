@@ -9,30 +9,12 @@ $ranking = ranking_by_category($products, $categories, 5);
 $first_cat = array_key_first($categories);
 
 $hero_slides = [
-    [
-        'image' => '/assets/img/hero-1.svg',
-        'eyebrow' => 'NEW COLLECTION',
-        'title' => "Silver jewelry,\nquietly refined.",
-        'link' => '/category.php?cat=ring',
-        'link_label' => 'SHOP RING',
-    ],
-    [
-        'image' => '/assets/img/hero-2.svg',
-        'eyebrow' => 'PICK UP',
-        'title' => "身につける、\n静かな輝き。",
-        'link' => '/category.php?cat=pendant',
-        'link_label' => 'SHOP PENDANT',
-    ],
-    [
-        'image' => '/assets/img/hero-3.svg',
-        'eyebrow' => 'DAILY WEAR',
-        'title' => "Everyday,\nelevated.",
-        'link' => '/category.php?cat=bracelet',
-        'link_label' => 'SHOP BRACELET',
-    ],
+    ['image' => '/assets/img/ブランドティザ.png'],
+    ['image' => '/assets/img/ブランドティザ.png'],
+    ['image' => '/assets/img/234563.jpg'],
 ];
 
-$page_title = 'SILVER | シルバーアクセサリ';
+$page_title = 'YOSHIDA | Lost Paradaice';
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -52,13 +34,7 @@ $page_title = 'SILVER | シルバーアクセサリ';
         <div class="hero-slider__track">
             <?php foreach ($hero_slides as $i => $slide): ?>
                 <div class="hero-slider__slide <?= $i === 0 ? 'is-active' : '' ?>"
-                     style="background-image:url('<?= h($slide['image']) ?>')">
-                    <div class="hero-slider__content">
-                        <p class="hero-slider__eyebrow"><?= h($slide['eyebrow']) ?></p>
-                        <h1 class="hero-slider__title"><?= nl2br(h($slide['title'])) ?></h1>
-                        <a href="<?= h($slide['link']) ?>" class="hero-slider__link"><?= h($slide['link_label']) ?></a>
-                    </div>
-                </div>
+                     style="background-image:url('<?= h($slide['image']) ?>')"></div>
             <?php endforeach; ?>
         </div>
 
