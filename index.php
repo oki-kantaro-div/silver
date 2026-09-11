@@ -14,7 +14,7 @@ $hero_slides = [
     ['image' => '/assets/img/234563.jpg'],
 ];
 
-$page_title = 'YOSHIDA | Lost Paradaice';
+$page_title = 'Lost Paradaice | Silver925';
 ?>
 <!DOCTYPE html>
 <html lang="ja">

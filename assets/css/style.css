@@ -20,6 +20,11 @@
     --max-width: 1440px;
 }
 
+/* 見出し等、装飾書体の文中で数字部分だけ差し替えたいときに使う */
+.font-number {
+    font-family: var(--font-number);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -89,7 +94,7 @@ ul {
     background: var(--color-black);
     color: var(--color-white);
     text-align: center;
-    font-family: var(--font-en);
+    font-family: var(--font-number);
     font-size: 11px;
     letter-spacing: 0.1em;
     padding: 9px 16px;
@@ -182,7 +187,7 @@ ul {
     gap: 6px;
     padding: 6px;
     margin: -6px;
-    font-family: var(--font-en);
+    font-family: var(--font-number);
     font-size: 11px;
     letter-spacing: 0.08em;
     color: var(--color-gray-700);
@@ -531,7 +536,7 @@ ul {
     z-index: 2;
     background: var(--color-black);
     color: var(--color-white);
-    font-family: var(--font-en);
+    font-family: var(--font-number);
     font-size: 11px;
     letter-spacing: 0.04em;
     padding: 3px 9px;
@@ -755,6 +760,7 @@ ul {
 .product-info__spec dd {
     margin: 0;
     font-size: 13px;
+    font-family: var(--font-number);
 }
 
 .product-options {
@@ -781,7 +787,7 @@ ul {
     border: none;
     border-bottom: 1px solid var(--color-gray-300);
     padding: 10px 2px;
-    font-family: var(--font-jp);
+    font-family: var(--font-number);
     font-size: 14px;
     background: none;
     outline: none;
@@ -894,7 +900,7 @@ ul {
 }
 
 .site-footer__copy {
-    font-family: var(--font-en);
+    font-family: var(--font-number);
     font-size: 11px;
     letter-spacing: 0.06em;
     color: var(--color-gray-500);
@@ -1245,14 +1251,14 @@ ul {
 .qty-stepper__value {
     min-width: 28px;
     text-align: center;
-    font-family: var(--font-en);
+    font-family: var(--font-number);
     font-size: 13px;
 }
 
 .cart-item__subtotal {
     min-width: 84px;
     text-align: right;
-    font-family: var(--font-en);
+    font-family: var(--font-number);
     font-size: 14px;
 }
 
@@ -1280,6 +1286,7 @@ ul {
     justify-content: space-between;
     font-size: 14px;
     padding: 10px 0;
+    font-family: var(--font-number);
 }
 
 .cart-summary__row--total {
@@ -1295,6 +1302,7 @@ ul {
     color: var(--color-gray-500);
     margin: 0 0 12px;
     text-align: right;
+    font-family: var(--font-number);
 }
 
 .cart-summary .btn-cart {
@@ -1517,7 +1525,7 @@ ul {
 }
 
 .steps-list__num {
-    font-family: var(--font-en);
+    font-family: var(--font-number);
     font-size: 20px;
     color: var(--color-gray-300);
     line-height: 1.4;
@@ -1638,6 +1646,7 @@ ul {
     font-size: 14px;
     color: var(--color-black);
     line-height: 1.8;
+    font-family: var(--font-number);
 }
 
 @media (max-width: 600px) {
@@ -1747,7 +1756,7 @@ ul {
 }
 
 .checkout-summary__item-qty {
-    font-family: var(--font-en);
+    font-family: var(--font-number);
     font-size: 12px;
     color: var(--color-gray-500);
 }
@@ -1819,7 +1828,7 @@ ul {
 }
 
 .order-complete__number span:last-child {
-    font-family: var(--font-en);
+    font-family: var(--font-number);
     letter-spacing: 0.05em;
 }
 
@@ -1912,12 +1921,13 @@ ul {
     padding-bottom: 18px;
     margin-bottom: 18px;
     border-bottom: 1px solid var(--color-gray-100);
+    font-family: var(--font-number);
     font-size: 12px;
     color: var(--color-gray-500);
 }
 
 .order-card__number {
-    font-family: var(--font-en);
+    font-family: var(--font-number);
     letter-spacing: 0.03em;
 }
 
@@ -1935,6 +1945,7 @@ ul {
     margin: 0 0 8px;
     font-size: 14px;
     color: var(--color-gray-700);
+    font-family: var(--font-number);
 }
 
 .address-card__name {
