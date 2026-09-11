@@ -114,7 +114,7 @@ ul {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 24px;
-    height: 64px;
+    height: 80px;
 }
 
 /* PCは1025px以上、SP/iPadは1024px以下でヘッダー行を丸ごと出し分ける */
@@ -135,10 +135,19 @@ ul {
 
 .site-logo__img {
     display: block;
-    height: 38px;
-    width: auto;
-    max-width: 100%;
     object-fit: contain;
+}
+
+.site-logo__img--desktop {
+    height: 58px;
+    width: auto;
+    max-width: 150%;
+}
+
+.site-logo__img--mobile {
+    height: 42px;
+    width: auto;
+    max-width: 150%;
 }
 
 .site-header__left {
@@ -286,6 +295,55 @@ ul {
     border-bottom-color: var(--color-black);
 }
 
+/* スマホ・iPad専用：200pxスクロール後に表示されるカテゴリナビ（PCでは常に非表示） */
+.sticky-cat-nav {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background: var(--color-gray-50);
+    border-bottom: 1px solid var(--color-gray-100);
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+    pointer-events: none;
+}
+
+.sticky-cat-nav.is-visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sticky-cat-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 14px;
+    padding: 10px 16px;
+}
+
+.sticky-cat-nav a {
+    display: block;
+    white-space: nowrap;
+    font-family: var(--font-en);
+    font-size: 10px;
+    letter-spacing: 0.03em;
+    color: var(--color-gray-700);
+}
+
+.sticky-cat-nav a.is-active {
+    color: var(--color-black);
+    font-weight: 500;
+}
+
+@media (min-width: 1025px) {
+    .sticky-cat-nav {
+        display: none;
+    }
+}
+
 /* ==========================================================
    Hero slider
    ========================================================== */
@@ -313,12 +371,14 @@ ul {
     background-size: cover;
     background-position: center;
     opacity: 0;
-    transition: opacity 1s var(--ease);
+    transform: scale(1.06);
+    transition: opacity 1s var(--ease), transform 3s var(--ease);
     z-index: 0;
 }
 
 .hero-slider__slide.is-active {
     opacity: 1;
+    transform: scale(1);
     z-index: 1;
 }
 
@@ -955,6 +1015,10 @@ ul {
         display: none;
     }
 
+    .site-nav {
+        background: var(--color-gray-50);
+    }
+
     /* 商品詳細：画像と情報を横並びにし、スクロールせず両方見える形にする */
     .product-detail {
         max-width: 1200px;
@@ -966,7 +1030,7 @@ ul {
 
     .product-gallery {
         position: sticky;
-        top: 136px;
+        top: 152px;
     }
 
     .product-info {
@@ -976,6 +1040,11 @@ ul {
 }
 
 @media (max-width: 1024px) {
+    /* SP/iPadはヘッダー高さを以前のサイズに戻す（PCのみ拡大版を維持）。ロゴは.site-logo__img--mobileで別クラス管理 */
+    .site-header__row {
+        height: 64px;
+    }
+
     .product-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1047,7 +1116,14 @@ ul {
         padding-right: 24px;
     }
 
+    /* スマホ版のみ：左上=リング/左下=ペンダント/中央上=バングル/中央下=ドッグタグ/右上=ブレスレット/右下=ピアス の並びに固定
+       $categoriesの定義順（ring, pendant, bangle, dogtag, bracelet, earring）を列優先で流し込むことで実現している */
     .cat-icons ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, auto);
+        grid-auto-flow: column;
+        justify-items: center;
         gap: 16px 28px;
     }
 
@@ -1089,8 +1165,8 @@ ul {
         padding: 0 12px;
     }
 
-    .site-logo__img {
-        height: 30px;
+    .site-logo__img--mobile {
+        height: 34px;
     }
 
     .site-header__utility {

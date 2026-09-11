@@ -16,7 +16,7 @@ $icon_cart = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" xmlns=
     <!-- PC（1025px以上）専用ヘッダー行：現状のまま -->
     <div class="site-header__row site-header__row--desktop">
         <a href="/index.php" class="site-logo">
-            <img src="/assets/img/main-logo-3.png" alt="Lost Paradise" class="site-logo__img">
+            <img src="/assets/img/main-logo-3.png" alt="Lost Paradise" class="site-logo__img site-logo__img--desktop">
         </a>
 
         <div class="site-header__utility">
@@ -54,7 +54,7 @@ $icon_cart = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" xmlns=
         </div>
 
         <a href="/index.php" class="site-logo">
-            <img src="/assets/img/main-logo-3.png" alt="Lost Paradise" class="site-logo__img">
+            <img src="/assets/img/main-logo-3.png" alt="Lost Paradise" class="site-logo__img site-logo__img--mobile">
         </a>
 
         <div class="site-header__right">
@@ -91,6 +91,20 @@ $icon_cart = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" xmlns=
                     お気に入り
                 </a>
             </li>
+        </ul>
+    </nav>
+
+    <!-- スマホ・iPad専用：200pxほどスクロールすると表示されるカテゴリナビ -->
+    <nav class="sticky-cat-nav" id="stickyCatNav">
+        <ul>
+            <?php foreach ($categories as $key => $label): ?>
+                <li>
+                    <a href="/category.php?cat=<?= h($key) ?>"
+                       class="<?= $current_cat === $key ? 'is-active' : '' ?>">
+                        <?= h($label) ?>
+                    </a>
+                </li>
+            <?php endforeach; ?>
         </ul>
     </nav>
 </header>

@@ -10,6 +10,16 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // スマホ・iPad：200pxスクロールしたらカテゴリナビを表示（PCではCSS側で常に非表示）
+    var stickyCatNav = document.getElementById('stickyCatNav');
+    if (stickyCatNav) {
+        var toggleStickyCatNav = function () {
+            stickyCatNav.classList.toggle('is-visible', window.scrollY > 200);
+        };
+        window.addEventListener('scroll', toggleStickyCatNav, { passive: true });
+        toggleStickyCatNav();
+    }
+
     // 検索欄の開閉（PC用・SP/iPad用の2つのボタンどちらからも開閉できるようにする）
     var searchToggles = [
         document.getElementById('searchToggle'),
