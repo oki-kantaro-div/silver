@@ -22,18 +22,18 @@ $page_title = 'お問い合わせ | SILVER';
         <h1 class="section-heading">CONTACT<span class="section-heading__sub">お問い合わせ</span></h1>
         <p class="page-lead">
             商品に関するご質問、ご注文についてのお問い合わせなど、お気軽にご連絡ください。
-            内容を確認のうえ、担当者よりご連絡いたします。
+            <br>内容を確認のうえ、担当者よりご連絡いたします。
         </p>
 
         <form class="account-form account-form--contact" id="contactForm">
             <label class="account-form__field">
                 <span>お名前</span>
-                <input type="text" name="name" required placeholder="山田 花子">
+                <input type="text" name="name" required placeholder="吉田 啓人">
             </label>
 
             <label class="account-form__field">
                 <span>メールアドレス</span>
-                <input type="email" name="email" required placeholder="example@mail.com">
+                <input type="email" name="email" required placeholder="lostparadise925.global@gmail.com">
             </label>
 
             <label class="account-form__field">
