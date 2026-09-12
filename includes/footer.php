@@ -14,7 +14,7 @@ $sns_icon_tiktok = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" 
 
         <div class="site-footer__top">
             <div class="site-footer__brand">
-                <p class="site-footer__logo">SILVER</p>
+                <p class="site-footer__logo">Lost Paradaice</p>
                 <p class="site-footer__tagline">Silver jewelry, quietly refined.</p>
             </div>
 
@@ -42,7 +42,7 @@ $sns_icon_tiktok = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" 
             <div class="site-footer__col">
                 <p class="site-footer__heading">ABOUT</p>
                 <ul>
-                    <li><a href="/company.php">会社情報</a></li>
+                    <li><a href="/company.php">代表者紹介</a></li>
                     <li><a href="/privacy-policy.php">プライバシーポリシー</a></li>
                     <li><a href="/terms.php">ご利用規約</a></li>
                     <li><a href="/legal-notice.php">特定商取引法に基づく表記</a></li>
@@ -51,7 +51,7 @@ $sns_icon_tiktok = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" 
         </div>
 
         <div class="site-footer__bottom">
-            <p class="site-footer__copy">&copy; <?= date('Y') ?> SILVER. All Rights Reserved.</p>
+            <p class="site-footer__copy">&copy; <?= date('Y') ?> Lost Paradaice</p>
             <ul class="site-footer__sns">
                 <li><a href="https://www.instagram.com/lostparadise.silver?stkn=MThsMnByaXE1NnY3NA%3D%3D&utm_source=qr" class="sns-link" aria-label="Instagram"><?= $sns_icon_instagram ?></a></li>
                 <li><a href="#" class="sns-link" aria-label="X"><?= $sns_icon_x ?></a></li>

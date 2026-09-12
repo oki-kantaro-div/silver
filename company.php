@@ -3,7 +3,7 @@ require_once __DIR__ . '/includes/functions.php';
 require_once __DIR__ . '/includes/data.php';
 
 $current_cat = null;
-$page_title = '会社情報 | SILVER';
+$page_title = '代表者紹介 | Lost Paradaice';
 
 /**
  * フロントのみのデザインモックのため、会社情報はすべて仮の記載内容。
@@ -11,7 +11,7 @@ $page_title = '会社情報 | SILVER';
  */
 $company_info = [
     '生産者紹介' => '代表　吉田 啓人',
-    '事業内容' => 'Silver925 アクセサリーの企画・デザイン・製造・販売',
+    '事業内容' => 'Silver925アクセサリーの企画・デザイン・製造・販売',
     'TEL' => '090-1090-4584',
     'Email' => 'lostparadise925.global@gmail.com'
 ];
@@ -30,7 +30,7 @@ $company_info = [
 
 <main>
     <section class="simple-page simple-page--narrow">
-        <h1 class="section-heading">COMPANY<span class="section-heading__sub">会社情報</span></h1>
+        <h1 class="section-heading">BUSINESS<span class="section-heading__sub">代表者紹介</span></h1>
 
         <dl class="info-list">
             <?php foreach ($company_info as $label => $value): ?>

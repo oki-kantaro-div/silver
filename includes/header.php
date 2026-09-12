@@ -9,14 +9,16 @@ $icon_search = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" xmln
 
 $icon_cart = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.2 7H14.8L14.1 17.2H5.9L5.2 7Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/><path d="M7.6 7V5.6C7.6 3.8 8.7 2.4 10 2.4C11.3 2.4 12.4 3.8 12.4 5.6V7" stroke="currentColor" stroke-width="1.3"/></svg>';
 ?>
-<div class="announce-bar">SILVER925 全品 &yen;8,800以上のご購入で送料無料</div>
+<div class="announce-bar"></div>
 
 <header class="site-header">
 
     <!-- PC（1025px以上）専用ヘッダー行：現状のまま -->
     <div class="site-header__row site-header__row--desktop">
+        <p class="site-header__greeting">ようこそ ゲスト 様</p>
+
         <a href="/index.php" class="site-logo">
-            <img src="/assets/img/main-logo-3.png" alt="Lost Paradise" class="site-logo__img site-logo__img--desktop">
+            <img src="/assets/img/site_logo_touka.png" alt="Lost Paradise" class="site-logo__img site-logo__img--desktop">
         </a>
 
         <div class="site-header__utility">
@@ -54,7 +56,7 @@ $icon_cart = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" xmlns=
         </div>
 
         <a href="/index.php" class="site-logo">
-            <img src="/assets/img/main-logo-3.png" alt="Lost Paradise" class="site-logo__img site-logo__img--mobile">
+            <img src="/assets/img/site_logo_touka.png" alt="Lost Paradise" class="site-logo__img site-logo__img--mobile">
         </a>
 
         <div class="site-header__right">

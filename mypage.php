@@ -19,7 +19,7 @@ $page_title = 'マイページ | SILVER';
 
 <main>
     <section class="simple-page">
-        <h1 class="section-heading">MY PAGE<span class="section-heading__sub">マイページ</span></h1>
+        <h1 class="section-heading">MY PAGE</h1>
 
         <div class="account-grid">
             <div class="account-panel">

@@ -27,7 +27,7 @@ $page_title = 'カート | SILVER';
 
 <main>
     <section class="simple-page">
-        <h1 class="section-heading">CART<span class="section-heading__sub">カート</span></h1>
+        <h1 class="section-heading">CART</h1>
 
         <?php if (empty($cart_items)): ?>
             <div class="empty-state">
@@ -74,7 +74,7 @@ $page_title = 'カート | SILVER';
                     <span>送料</span>
                     <span id="cartShipping"><?= $shipping_fee === 0 ? '無料' : h(format_price($shipping_fee)) ?></span>
                 </div>
-                <p class="cart-summary__note">&yen;<?= number_format($free_shipping_threshold) ?>以上のご購入で送料無料</p>
+                <p class="cart-summary__note">送料無料（一部地域を除く）</p>
                 <div class="cart-summary__row cart-summary__row--total">
                     <span>合計</span>
                     <span id="cartTotal"><?= h(format_price($total)) ?></span>

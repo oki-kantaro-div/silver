@@ -25,7 +25,7 @@ $products = [
         'worn_image' => $img_base . 'ring.jpg',
         'pickup' => false,
         'new' => false,
-        'engravable' => false,
+        'engravable' => true,
         'description' => "天使の羽を立体的に表現したシルバーリング。燻し加工による深い陰影が、指元に重厚感を与えます。",
         'material' => 'Silver925',
     ],

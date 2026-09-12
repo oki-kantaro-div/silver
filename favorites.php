@@ -29,7 +29,7 @@ $page_title = 'お気に入り | SILVER';
 
 <main>
     <section class="simple-page">
-        <h1 class="section-heading">FAVORITE<span class="section-heading__sub">お気に入り</span></h1>
+        <h1 class="section-heading">FAVORITE</h1>
 
         <?php if (empty($favorite_items)): ?>
             <div class="empty-state">

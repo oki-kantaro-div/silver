@@ -9,7 +9,7 @@ $ranking = ranking_by_category($products, $categories, 5);
 $first_cat = array_key_first($categories);
 
 $hero_slides = [
-    ['image' => '/assets/img/ブランドティザ.png'],
+    ['image' => '/assets/img/234563.jpg'],
     ['image' => '/assets/img/ブランドティザ.png'],
     ['image' => '/assets/img/234563.jpg'],
 ];
