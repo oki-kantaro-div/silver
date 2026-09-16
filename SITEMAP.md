@@ -26,7 +26,7 @@ silver/
 | ファイル | 役割・責務 |
 |---|---|
 | `index.php` | トップページ。ヒーロースライダー／カテゴリアイコン／NEW ARRIVAL・PICK UPの横スクロール／ランキング（カテゴリタブ）を表示する。`new_products()` `pickup_products()` `ranking_by_category()` を使って `$products` から表示用データを組み立てる。 |
-| `category.php` | カテゴリ別の商品一覧。クエリ `?cat={key}` で `$categories` のキーを受け取り、`products_by_category()` で絞り込んで `product-card.php` を並べる。不正な`cat`値は「全件表示」扱いにフォールバックする。 |
+| `category.php` | カテゴリ別の商品一覧。クエリ `?cat={key}` を受け取り、`products_by_category()` で絞り込んで `product-card.php` を並べる。カテゴリキーの妥当性チェックとラベル表示はファイル内にハードコードした6種（`ring` `pendant` `bangle` `dogtag` `bracelet` `earring`）で判定。不正な`cat`値は「全件表示」扱いにフォールバックする。 |
 | `product.php` | 商品詳細。クエリ `?id={id}` で `find_product()` により該当商品を取得。存在しないIDは `index.php` へリダイレクト。ギャラリー（物撮り／着用／反転）、関連商品（同カテゴリ）を表示する。`category === 'ring'`のときサイズ選択（11号〜21号）、`engravable === true`のとき刻印オプション（+¥6,000、選択でJSが価格表示を再計算）を表示。 |
 | `search.php` | 検索結果。クエリ `?q={keyword}` を `search_products()` に渡し、商品名・説明文の部分一致でヒットしたものを一覧表示。ヘッダーの検索フォーム（`header.php`内）から遷移してくる。 |
 
@@ -73,7 +73,7 @@ silver/
 | ファイル | 役割・責務 |
 |---|---|
 | `head-assets.php` | `<head>`内のCSS（`style.css`）・Google Fonts（Cormorant Garamond / Noto Sans JP）読み込みを担当。CSSは `filemtime()` を使ったクエリ文字列でキャッシュバスティングしており、`style.css`編集後にブラウザキャッシュで反映されない事態を防いでいる。全ページがこの1ファイルをincludeする（重複防止）。 |
-| `header.php` | サイト共通ヘッダー。**PC（1025px以上）用**と**SP・iPad（1024px以下）用**で別々のマークアップ（`.site-header__row--desktop` / `--mobile`）を出力し、CSS側のメディアクエリで出し分ける。検索フォーム（`#siteSearch`、`search.php`へGET送信）、カテゴリナビ（`$categories`から動的生成）、モバイル用ドロワー（`#siteNav`、お気に入りリンクを内包）を含む。アイコンSVGはPHP変数（`$icon_fav`等）として定義し使い回している。 |
+| `header.php` | サイト共通ヘッダー。**PC（1025px以上）用**と**SP・iPad（1024px以下）用**で別々のマークアップ（`.site-header__row--desktop` / `--mobile`）を出力し、CSS側のメディアクエリで出し分ける。検索フォーム（`#siteSearch`、`search.php`へGET送信）、カテゴリナビ（`ring` `pendant` `bangle` `dogtag` `bracelet` `earring`の6件をファイル内にハードコード）、モバイル用ドロワー（`#siteNav`、お気に入りリンクを内包）を含む。アイコンSVGはPHP変数（`$icon_fav`等）として定義し使い回している。 |
 | `footer.php` | サイト共通フッター。SHOP（カテゴリ一覧）／GUIDE／ABOUTの3カラムと、SNSアイコン5種（オリジナルの線画SVG、`$sns_icon_*`変数）を表示。 |
 | `functions.php` | 共通ヘルパー関数群（詳細は下表）。 |
 | `data.php` | 全ページ共通のダミーデータ定義（詳細は下表）。 |
@@ -89,7 +89,7 @@ silver/
 | `pickup_products($products)` | `pickup=true`の商品のみ抽出（トップページPICK UP用）。 |
 | `products_by_category($products, $category)` | カテゴリで絞り込み。`$category`がnullなら全件。 |
 | `new_products($products, $limit=8)` | `new=true`の商品を先頭から`$limit`件（トップページNEW ARRIVAL用）。 |
-| `ranking_by_category($products, $categories, $limit=5)` | カテゴリごとに先頭`$limit`件を抽出した連想配列を返す（ランキング用）。 |
+| `ranking_by_category($products, $limit=5)` | カテゴリごとに先頭`$limit`件を抽出した連想配列を返す（ランキング用）。対象カテゴリのキーは関数内にハードコード。 |
 | `build_cart($products, $lines, $free_shipping_threshold=8800, $shipping_fee=660)` | `[['id'=>..,'qty'=>..], ...]`形式の行データから、商品情報付与・小計・送料判定・合計を計算した連想配列を返す。`cart.php` `checkout.php` `order-complete.php` `account.php`（注文履歴）で共通利用。 |
 | `search_products($products, $keyword)` | キーワードで商品名・説明文を部分一致検索（`mb_stripos`）。 |
 
@@ -97,7 +97,6 @@ silver/
 
 | 変数 | 内容 |
 |---|---|
-| `$categories` | カテゴリの key => 表示名 の連想配列（`ring`=リング／`pendant`=ペンダント／`bangle`=バングル／`dogtag`=ドッグタグ／`bracelet`=ブレスレット／`earring`=ピアス の6種）。ここに追加すればナビ・カテゴリアイコン・ランキングタブに自動反映される。 |
 | `$img_base` | 画像パスのプレフィックス（`/assets/img/`）。 |
 | `$products` | 商品データ本体（42件）。各要素のキーは下表の通り。 |
 | `$mock_cart_lines` | カートの中身のサンプル（`cart.php` `checkout.php` `order-complete.php`で共通利用）。 |
@@ -110,7 +109,7 @@ silver/
 |---|---|---|
 | `id` | int | 商品ID。連番で一意に管理。`product.php?id=`での商品指定、カート／注文履歴（`$mock_cart_lines` `$mock_orders`の`lines`）での商品参照に使う。 |
 | `name` | string | 商品名。商品カード・商品詳細・関連商品・検索結果などにそのまま表示される。 |
-| `category` | string | カテゴリの内部キー。**`$categories`のキーと必ず一致させる**（`ring` `pendant` `bangle` `dogtag` `bracelet` `earring`のいずれか）。カテゴリ絞り込み（`products_by_category()`）・ランキング（`ranking_by_category()`）・カテゴリページの表示判定に使う。 |
+| `category` | string | カテゴリの内部キー。`ring` `pendant` `bangle` `dogtag` `bracelet` `earring`のいずれか（**この6種のキーは`data.php`では一元管理せず、`index.php` `header.php` `footer.php` `category.php` `product.php` `cart.php`など各ファイルにハードコードしている**）。カテゴリ絞り込み（`products_by_category()`）・ランキング（`ranking_by_category()`）・カテゴリページの表示判定に使う。 |
 | `price` | int | 税込価格（円、カンマや¥記号なしの数値のみ）。`format_price()`で`¥12,800`形式に整形されて表示される。刻印オプションON時は`product.php`側のJSで表示価格に+6,000円が上乗せされる（このキー自体は変化しない）。 |
 | `image` | string | メイン商品画像（物撮り）のパス。`$img_base . 'ファイル名'`の形で指定。商品カード・商品詳細のメイン画像・関連商品などで使用。 |
 | `worn_image` | string | 着用写真のパス。商品詳細ページのギャラリー2枚目、トップページPICK UPスライダーの奇数番目のカードで使用。 |

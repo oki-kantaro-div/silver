@@ -37,6 +37,18 @@ $page_title = 'カート | SILVER';
         <?php else: ?>
             <div class="cart-list" id="cartList">
                 <?php foreach ($cart_items as $item): ?>
+                    <?php
+                    // カテゴリラベルはハードコード（data.phpでは管理しない）
+                    $item_category_label = match ($item['category']) {
+                        'ring' => 'リング',
+                        'pendant' => 'ペンダント',
+                        'bangle' => 'バングル',
+                        'dogtag' => 'ドッグタグ',
+                        'bracelet' => 'ブレスレット',
+                        'earring' => 'ピアス',
+                        default => '',
+                    };
+                    ?>
                     <div class="cart-item" data-price="<?= (int) $item['price'] ?>">
                         <a href="/product.php?id=<?= h($item['id']) ?>" class="cart-item__image">
                             <img src="<?= h($item['image']) ?>" alt="<?= h($item['name']) ?>">
@@ -44,7 +56,7 @@ $page_title = 'カート | SILVER';
 
                         <div class="cart-item__body">
                             <div class="cart-item__info">
-                                <p class="cart-item__category"><?= h($categories[$item['category']]) ?></p>
+                                <p class="cart-item__category"><?= h($item_category_label) ?></p>
                                 <a href="/product.php?id=<?= h($item['id']) ?>" class="cart-item__name"><?= h($item['name']) ?></a>
                                 <p class="cart-item__price"><?= h(format_price($item['price'])) ?></p>
                             </div>

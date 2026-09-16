@@ -2,13 +2,24 @@
 require_once __DIR__ . '/includes/functions.php';
 require_once __DIR__ . '/includes/data.php';
 
+// カテゴリはハードコード（data.phpでは管理しない）
 $current_cat = isset($_GET['cat']) ? $_GET['cat'] : null;
-if (!array_key_exists($current_cat, $categories)) {
+$valid_cats = ['ring', 'pendant', 'bangle', 'dogtag', 'bracelet', 'earring'];
+if (!in_array($current_cat, $valid_cats, true)) {
     $current_cat = null;
 }
 
 $filtered = products_by_category($products, $current_cat);
-$category_label = $current_cat ? $categories[$current_cat] : 'ALL ITEMS';
+
+$category_label = match ($current_cat) {
+    'ring' => 'リング',
+    'pendant' => 'ペンダント',
+    'bangle' => 'バングル',
+    'dogtag' => 'ドッグタグ',
+    'bracelet' => 'ブレスレット',
+    'earring' => 'ピアス',
+    default => 'ALL ITEMS',
+};
 $category_en = $current_cat ? strtoupper($current_cat) : 'ALL ITEMS';
 $page_title = $category_label . ' | SILVER';
 ?>

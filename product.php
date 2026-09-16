@@ -56,8 +56,20 @@ $page_title = $product['name'] . ' | SILVER';
             </div>
         </div>
 
+        <?php
+        // カテゴリラベルはハードコード（data.phpでは管理しない）
+        $category_label = match ($product['category']) {
+            'ring' => 'リング',
+            'pendant' => 'ペンダント',
+            'bangle' => 'バングル',
+            'dogtag' => 'ドッグタグ',
+            'bracelet' => 'ブレスレット',
+            'earring' => 'ピアス',
+            default => '',
+        };
+        ?>
         <div class="product-info">
-            <p class="product-info__category"><?= h($categories[$product['category']]) ?></p>
+            <p class="product-info__category"><?= h($category_label) ?></p>
             <h1 class="product-info__name"><?= h($product['name']) ?></h1>
             <p class="product-info__price" id="productPrice" data-base-price="<?= (int) $product['price'] ?>">
                 <?= h(format_price($product['price'])) ?>

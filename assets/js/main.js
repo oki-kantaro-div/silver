@@ -20,6 +20,16 @@ document.addEventListener('DOMContentLoaded', function () {
         toggleStickyCatNav();
     }
 
+    // 200pxスクロールしたらヘッダーの配色を反転（生と死の2要素を表現。参考: osewaya.jp）
+    var siteHeader = document.querySelector('.site-header');
+    if (siteHeader) {
+        var toggleHeaderTheme = function () {
+            siteHeader.classList.toggle('is-scrolled', window.scrollY > 200);
+        };
+        window.addEventListener('scroll', toggleHeaderTheme, { passive: true });
+        toggleHeaderTheme();
+    }
+
     // 検索欄の開閉（PC用・SP/iPad用の2つのボタンどちらからも開閉できるようにする）
     var searchToggles = [
         document.getElementById('searchToggle'),

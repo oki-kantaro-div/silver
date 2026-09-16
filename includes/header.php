@@ -18,7 +18,8 @@ $icon_cart = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" xmlns=
         <p class="site-header__greeting">ようこそ ゲスト 様</p>
 
         <a href="/index.php" class="site-logo">
-            <img src="/assets/img/site_logo_touka.png" alt="Lost Paradise" class="site-logo__img site-logo__img--desktop">
+            <img src="/assets/img/site_logo_touka.png" alt="Lost Paradise" class="site-logo__img site-logo__img--desktop site-logo__img--default">
+            <img src="/assets/img/site_logo_Flip.png" alt="Lost Paradise" class="site-logo__img site-logo__img--desktop site-logo__img--flip">
         </a>
 
         <div class="site-header__utility">
@@ -56,7 +57,8 @@ $icon_cart = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" xmlns=
         </div>
 
         <a href="/index.php" class="site-logo">
-            <img src="/assets/img/site_logo_touka.png" alt="Lost Paradise" class="site-logo__img site-logo__img--mobile">
+            <img src="/assets/img/site_logo_touka.png" alt="Lost Paradise" class="site-logo__img site-logo__img--mobile site-logo__img--default">
+            <img src="/assets/img/site_logo_Flip.png" alt="Lost Paradise" class="site-logo__img site-logo__img--mobile site-logo__img--flip">
         </a>
 
         <div class="site-header__right">
@@ -74,19 +76,30 @@ $icon_cart = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" xmlns=
         <button type="submit">検索</button>
     </form>
 
+    <!-- カテゴリはハードコード（data.phpでは管理しない） -->
     <nav class="site-nav" id="siteNav">
         <ul>
             <li>
                 <a href="/index.php" class="<?= $current_cat === null ? 'is-active' : '' ?>">TOP</a>
             </li>
-            <?php foreach ($categories as $key => $label): ?>
-                <li>
-                    <a href="/category.php?cat=<?= h($key) ?>"
-                       class="<?= $current_cat === $key ? 'is-active' : '' ?>">
-                        <?= h($label) ?>
-                    </a>
-                </li>
-            <?php endforeach; ?>
+            <li>
+                <a href="/category.php?cat=ring" class="<?= $current_cat === 'ring' ? 'is-active' : '' ?>">ring</a>
+            </li>
+            <li>
+                <a href="/category.php?cat=bangle" class="<?= $current_cat === 'bangle' ? 'is-active' : '' ?>">bangle</a>
+            </li>
+            <li>
+                <a href="/category.php?cat=bracelet" class="<?= $current_cat === 'bracelet' ? 'is-active' : '' ?>">bracelet</a>
+            </li>
+            <li>
+                <a href="/category.php?cat=pendant" class="<?= $current_cat === 'pendant' ? 'is-active' : '' ?>">pendant</a>
+            </li>
+            <li>
+                <a href="/category.php?cat=dogtag" class="<?= $current_cat === 'dogtag' ? 'is-active' : '' ?>">dogtag</a>
+            </li>
+            <li>
+                <a href="/category.php?cat=earring" class="<?= $current_cat === 'earring' ? 'is-active' : '' ?>">earring</a>
+            </li>
             <li class="site-nav__fav">
                 <a href="/favorites.php">
                     <span class="site-nav__fav-icon"><?= $icon_fav ?></span>
@@ -96,17 +109,27 @@ $icon_cart = '<svg viewBox="0 0 20 20" width="18" height="18" fill="none" xmlns=
         </ul>
     </nav>
 
-    <!-- スマホ・iPad専用：200pxほどスクロールすると表示されるカテゴリナビ -->
+    <!-- スマホ・iPad専用：200pxほどスクロールすると表示されるカテゴリナビ（こちらもハードコード） -->
     <nav class="sticky-cat-nav" id="stickyCatNav">
         <ul>
-            <?php foreach ($categories as $key => $label): ?>
-                <li>
-                    <a href="/category.php?cat=<?= h($key) ?>"
-                       class="<?= $current_cat === $key ? 'is-active' : '' ?>">
-                        <?= h($label) ?>
-                    </a>
-                </li>
-            <?php endforeach; ?>
+            <li>
+                <a href="/category.php?cat=ring" class="<?= $current_cat === 'ring' ? 'is-active' : '' ?>">リング</a>
+            </li>
+            <li>
+                <a href="/category.php?cat=pendant" class="<?= $current_cat === 'pendant' ? 'is-active' : '' ?>">ペンダント</a>
+            </li>
+            <li>
+                <a href="/category.php?cat=bangle" class="<?= $current_cat === 'bangle' ? 'is-active' : '' ?>">バングル</a>
+            </li>
+            <li>
+                <a href="/category.php?cat=dogtag" class="<?= $current_cat === 'dogtag' ? 'is-active' : '' ?>">ドッグタグ</a>
+            </li>
+            <li>
+                <a href="/category.php?cat=bracelet" class="<?= $current_cat === 'bracelet' ? 'is-active' : '' ?>">ブレスレット</a>
+            </li>
+            <li>
+                <a href="/category.php?cat=earring" class="<?= $current_cat === 'earring' ? 'is-active' : '' ?>">ピアス</a>
+            </li>
         </ul>
     </nav>
 </header>

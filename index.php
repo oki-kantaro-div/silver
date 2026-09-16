@@ -5,8 +5,7 @@ require_once __DIR__ . '/includes/data.php';
 $current_cat = null;
 $new_items = new_products($products, 8);
 $pickups = pickup_products($products);
-$ranking = ranking_by_category($products, $categories, 5);
-$first_cat = array_key_first($categories);
+$ranking = ranking_by_category($products, 5);
 
 $hero_slides = [
     ['image' => '/assets/img/234563.jpg'],
@@ -50,16 +49,55 @@ $page_title = 'Lost Paradaice | Silver925';
 
     <section class="cat-icons">
         <ul>
-            <?php foreach ($categories as $key => $label): ?>
-                <li>
-                    <a href="/category.php?cat=<?= h($key) ?>">
-                        <span class="cat-icons__image">
-                            <img src="<?= h($img_base . $key . '.svg') ?>" alt="<?= h($label) ?>">
-                        </span>
-                        <span class="cat-icons__label"><?= h($label) ?></span>
-                    </a>
-                </li>
-            <?php endforeach; ?>
+            <!-- カテゴリはハードコード（data.phpでは管理しない）。並び順はスマホ版のグリッド配置（列優先）と対応しているため変更しないこと -->
+            <li>
+                <a href="/category.php?cat=ring">
+                    <span class="cat-icons__image">
+                        <img src="/assets/img/ring.svg" alt="リング">
+                    </span>
+                    <span class="cat-icons__label">ring</span>
+                </a>
+            </li>
+            <li>
+                <a href="/category.php?cat=bangle">
+                    <span class="cat-icons__image">
+                        <img src="/assets/img/bangle.svg" alt="バングル">
+                    </span>
+                    <span class="cat-icons__label">bangle</span>
+                </a>
+            </li>
+            <li>
+                <a href="/category.php?cat=bracelet">
+                    <span class="cat-icons__image">
+                        <img src="/assets/img/bracelet.svg" alt="ブレスレット">
+                    </span>
+                    <span class="cat-icons__label">bracelet</span>
+                </a>
+            </li>
+            <li>
+                <a href="/category.php?cat=pendant">
+                    <span class="cat-icons__image">
+                        <img src="/assets/img/pendant.svg" alt="ペンダント">
+                    </span>
+                    <span class="cat-icons__label">pendant</span>
+                </a>
+            </li>
+            <li>
+                <a href="/category.php?cat=dogtag">
+                    <span class="cat-icons__image">
+                        <img src="/assets/img/dogtag.svg" alt="ドッグタグ">
+                    </span>
+                    <span class="cat-icons__label">dogtag</span>
+                </a>
+            </li>
+            <li>
+                <a href="/category.php?cat=earring">
+                    <span class="cat-icons__image">
+                        <img src="/assets/img/earring.svg" alt="ピアス">
+                    </span>
+                    <span class="cat-icons__label">earring</span>
+                </a>
+            </li>
         </ul>
     </section>
 
@@ -96,26 +134,63 @@ $page_title = 'Lost Paradaice | Silver925';
     <section class="ranking">
         <h2 class="section-heading">RANKING<span class="section-heading__sub">ランキング</span></h2>
 
+        <!-- カテゴリはハードコード（data.phpでは管理しない） -->
         <div class="ranking-tabs" role="tablist">
-            <?php foreach ($categories as $key => $label): ?>
-                <button type="button"
-                        class="ranking-tab <?= $key === $first_cat ? 'is-active' : '' ?>"
-                        data-panel="ranking-<?= h($key) ?>"
-                        role="tab">
-                    <?= h($label) ?>
-                </button>
-            <?php endforeach; ?>
+            <button type="button" class="ranking-tab is-active" data-panel="ranking-ring" role="tab">リング</button>
+            <button type="button" class="ranking-tab" data-panel="ranking-pendant" role="tab">ペンダント</button>
+            <button type="button" class="ranking-tab" data-panel="ranking-bangle" role="tab">バングル</button>
+            <button type="button" class="ranking-tab" data-panel="ranking-dogtag" role="tab">ドッグタグ</button>
+            <button type="button" class="ranking-tab" data-panel="ranking-bracelet" role="tab">ブレスレット</button>
+            <button type="button" class="ranking-tab" data-panel="ranking-earring" role="tab">ピアス</button>
         </div>
 
-        <?php foreach ($categories as $key => $label): ?>
-            <div class="ranking-panel <?= $key === $first_cat ? 'is-active' : '' ?>" id="ranking-<?= h($key) ?>" role="tabpanel">
-                <div class="ranking-list">
-                    <?php foreach ($ranking[$key] as $i => $product): $card_rank = $i + 1; ?>
-                        <div class="ranking-list__item"><?php include __DIR__ . '/includes/product-card.php'; ?></div>
-                    <?php endforeach; ?>
-                </div>
+        <div class="ranking-panel is-active" id="ranking-ring" role="tabpanel">
+            <div class="ranking-list">
+                <?php foreach ($ranking['ring'] as $i => $product): $card_rank = $i + 1; ?>
+                    <div class="ranking-list__item"><?php include __DIR__ . '/includes/product-card.php'; ?></div>
+                <?php endforeach; ?>
             </div>
-        <?php endforeach; ?>
+        </div>
+
+        <div class="ranking-panel" id="ranking-pendant" role="tabpanel">
+            <div class="ranking-list">
+                <?php foreach ($ranking['pendant'] as $i => $product): $card_rank = $i + 1; ?>
+                    <div class="ranking-list__item"><?php include __DIR__ . '/includes/product-card.php'; ?></div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+        <div class="ranking-panel" id="ranking-bangle" role="tabpanel">
+            <div class="ranking-list">
+                <?php foreach ($ranking['bangle'] as $i => $product): $card_rank = $i + 1; ?>
+                    <div class="ranking-list__item"><?php include __DIR__ . '/includes/product-card.php'; ?></div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+        <div class="ranking-panel" id="ranking-dogtag" role="tabpanel">
+            <div class="ranking-list">
+                <?php foreach ($ranking['dogtag'] as $i => $product): $card_rank = $i + 1; ?>
+                    <div class="ranking-list__item"><?php include __DIR__ . '/includes/product-card.php'; ?></div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+        <div class="ranking-panel" id="ranking-bracelet" role="tabpanel">
+            <div class="ranking-list">
+                <?php foreach ($ranking['bracelet'] as $i => $product): $card_rank = $i + 1; ?>
+                    <div class="ranking-list__item"><?php include __DIR__ . '/includes/product-card.php'; ?></div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+        <div class="ranking-panel" id="ranking-earring" role="tabpanel">
+            <div class="ranking-list">
+                <?php foreach ($ranking['earring'] as $i => $product): $card_rank = $i + 1; ?>
+                    <div class="ranking-list__item"><?php include __DIR__ . '/includes/product-card.php'; ?></div>
+                <?php endforeach; ?>
+            </div>
+        </div>
     </section>
 
 </main>

@@ -39,9 +39,12 @@ function new_products($products, $limit = 8) {
     return array_slice($items, 0, $limit);
 }
 
-function ranking_by_category($products, $categories, $limit = 5) {
+function ranking_by_category($products, $limit = 5) {
+    // カテゴリ一覧はここにハードコード（data.phpでは一元管理しない方針）
+    $keys = ['ring', 'pendant', 'bangle', 'dogtag', 'bracelet', 'earring'];
+
     $ranking = [];
-    foreach (array_keys($categories) as $key) {
+    foreach ($keys as $key) {
         $ranking[$key] = array_slice(products_by_category($products, $key), 0, $limit);
     }
     return $ranking;
